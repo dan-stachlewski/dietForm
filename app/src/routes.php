@@ -14,7 +14,7 @@ $app->get('/docs', function ($request, $response, $args) {
         'docs' => $this->toc,
         'page_content' => "<h1>Get slim with Slim</h1>",
     ]);
-});
+})->setName('docs-home');
 // this id's the route
 // using reg exp to validate,
 // w a html extension
@@ -42,3 +42,12 @@ $app->get('/docs/{fname:[^\s]+.html}', function ($request, $response, $args) {
 
 
 })->setName('docs');
+
+$app->get('/bmi', function ($request, $response, $args) {
+    return $this->view->render($response, 'forms/bmi.twig',
+    [
+        'docs' => $this->toc,
+        'bmi' => [],
+        'errors' => [],
+    ]);
+})->setName('bmi');
