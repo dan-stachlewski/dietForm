@@ -44,7 +44,7 @@ class __TwigTemplate_81722752b2fdcf8a403f0bc5b4f60b1a1e464e95f504bae7783c7001078
         }
         echo "\">
              <label class=\"control-label\" for=\"weight\">What is your weight(kg)?</label>
-            <input type=\"text\" class=\"form-control\" name=\"wight\" value=\"";
+            <input type=\"text\" class=\"form-control\" name=\"weight\" value=\"";
         // line 14
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["bmi"]) ? $context["bmi"] : null), "weight", array()), "html", null, true);
         echo "\" />
@@ -141,7 +141,7 @@ class __TwigTemplate_81722752b2fdcf8a403f0bc5b4f60b1a1e464e95f504bae7783c7001078
 /*         {# WEIGHT text-box #}*/
 /*         <div class="form-group {% if errors.weight %}"has-error{% endif %}">*/
 /*              <label class="control-label" for="weight">What is your weight(kg)?</label>*/
-/*             <input type="text" class="form-control" name="wight" value="{{ bmi.weight }}" />*/
+/*             <input type="text" class="form-control" name="weight" value="{{ bmi.weight }}" />*/
 /*             {% if errors.weight %}<span class="help-block">{{ errors.weight.0 }}</span>{% endif %}*/
 /*         </div>*/
 /* */

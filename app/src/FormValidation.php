@@ -10,6 +10,7 @@ function validateBmiForm($data) {
     $v->rule('max', 'height', 2.5);
     $v->rule('notIn', 'height', [0])->message('{field} - zero is not allowed here');
     $v->rule('min', 'weight', 30);
+    $v->rule('notIn', 'weight', [0])->message('{field} - zero is not allowed here');
 
     return ['is_valid'=> $v->validate(), 'has_errors' => $v->errors()];
 }
