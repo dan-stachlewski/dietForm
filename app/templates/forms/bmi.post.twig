@@ -1,0 +1,11 @@
+{# empty Twig template #}
+{% extends 'md_document.twig' %}
+{% block content %}
+    <div class="jumbotron">
+        <div class="container">
+            <h3>Your Body Mass Index (BMI) is: {{ bmi_value }}</h3>
+            <h6>Thank you for subscribing to our newsletter using: {{ email }}. We have sent you an activation request.</h6>
+            <p><a class="btn btn-primary btn-lg" href="{{ path_for('bmi') }}" role="button">Try Again? &raquo;</a></p>
+        </div>
+    </div>
+{% endblock %}

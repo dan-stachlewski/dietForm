@@ -11,7 +11,7 @@
         {# WEIGHT text-box #}
         <div class="form-group {% if errors.weight %}"has-error{% endif %}">
              <label class="control-label" for="weight">What is your weight(kg)?</label>
-            <input type="text" class="form-control" name="wight" value="{{ bmi.weight }}" />
+            <input type="text" class="form-control" name="weight" value="{{ bmi.weight }}" />
             {% if errors.weight %}<span class="help-block">{{ errors.weight.0 }}</span>{% endif %}
         </div>
 

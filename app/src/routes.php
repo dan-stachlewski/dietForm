@@ -1,8 +1,8 @@
 <?php
-
+include ('FormValidation.php');
 
 $app->get('/', function ($request, $response, $args) {
-    ddd($this->toc);
+    //ddd($this->toc);
     return $response->write("Hello from Getting slim with Slim");
 
 });
@@ -21,12 +21,12 @@ $app->get('/docs', function ($request, $response, $args) {
 $app->get('/docs/{fname:[^\s]+.html}', function ($request, $response, $args) {
 
     //see whats in a response and request
-    d($request); 
-    ddd($response);
+    //d($request); 
+    //ddd($response);
     
     $dir = $this->application['docs_path'];
     $docs = $this->toc; //take array
-    ddd($docs);
+    //ddd($docs);
     $idx = array_search($args['fname'], array_column($docs, 'slug')); //search array from index
     $filename = $docs[$idx]['fname']; //work out filename
 
@@ -49,5 +49,27 @@ $app->get('/bmi', function ($request, $response, $args) {
         'docs' => $this->toc,
         'bmi' => [],
         'errors' => [],
+    ]);
+})->setName('bmi');
+
+$app->post('/bmi', function ($request, $response, $args) {
+    $bmi = $_POST;
+    $form = validateBmiForm($bmi);
+    
+    if ($form['is_valid']) {
+        //process data
+        $bmi_value = round($bmi['weight'] / ($bmi['height'] * $bmi['height']), 2);
+        //display results
+        return $this->view->render($response, 'forms/bmi.post.twig', [
+            'docs' => $this->toc,
+            'bmi_value' => $bmi_value,
+            'email' => $bmi['email'],
+        ]);
+    }
+    return $this->view->render($response, 'forms/bmi.twig',
+    [
+        'docs' => $this->toc,
+        'bmi' => $bmi,
+        'errors' => $form['has_errors'],
     ]);
 })->setName('bmi');
